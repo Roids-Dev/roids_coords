@@ -14,7 +14,7 @@ Citizen.CreateThread(function()
         local player = PlayerPedId()
         local coords = GetEntityCoords(player)
         local heading = GetEntityHeading(player)
-        DrawTxt('Coords: '..coords..' Heading: '..heading, 0.50, 0.95, 0.7, 0.7, true, 255, 255, 255, 255, true)
+        DrawTxt('X:'..coords[1]..' Y:'..coords[2]..' Z:'..coords[3]..' H:'..heading, 0.50, 0.95, 0.7, 0.7, true, 255, 255, 255, 255, true)
      end
 end)
 
