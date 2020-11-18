@@ -1,20 +1,22 @@
+local showCoords = false
 
-
+RegisterCommand('showcoords', function()
+    if not showCoords then
+        showCoords = true
+    elseif showCoords then
+        showCoords = false
+    end
+end)
 
 Citizen.CreateThread(function()
-while true do
+    Citizen.Wait(0)
+     while showCoords do
         local player = PlayerPedId()
         local coords = GetEntityCoords(player)
         local heading = GetEntityHeading(player)
         DrawTxt('Coords: '..coords..' Heading: '..heading, 0.50, 0.95, 0.7, 0.7, true, 255, 255, 255, 255, true)
      end
 end)
-
-
-
-
-
-
 
 function DrawTxt(str, x, y, w, h, enableShadow, col1, col2, col3, a, centre)
     local str = CreateVarString(10, "LITERAL_STRING", str, Citizen.ResultAsLong())
